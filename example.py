@@ -8,9 +8,9 @@ This example mirrors the functionality of example.rs:
 - Publishes a message
 """
 
-from up_py.communication import SimplePublisher, UPayload
-from up_py.local_transport import LocalTransport
-from up_py import StaticUriProvider
+from up_py_rs.communication import SimplePublisher, UPayload
+from up_py_rs.local_transport import LocalTransport
+from up_py_rs import StaticUriProvider
 
 
 # Constants

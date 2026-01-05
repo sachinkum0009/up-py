@@ -1,7 +1,7 @@
 """
-Type stubs for up_py - Python bindings for up-rust (uProtocol).
+Type stubs for up_py_rs - Python bindings for up-rust (uProtocol).
 
-This file provides type hints and IDE support for the up_py module.
+This file provides type hints and IDE support for the up_py_rs module.
 """
 
 from typing import Optional, Callable
@@ -52,7 +52,7 @@ class StaticUriProvider:
             version: The version number (0 to 255, e.g., 0x01).
         
         Example:
-            >>> from up_py import StaticUriProvider
+            >>> from up_py_rs import StaticUriProvider
             >>> provider = StaticUriProvider("my-vehicle", 0xa34b, 0x01)
         """
         ...
@@ -86,7 +86,7 @@ class communication:
                 Exception: If the payload creation fails.
             
             Example:
-                >>> from up_py.communication import UPayload
+                >>> from up_py_rs.communication import UPayload
                 >>> payload = UPayload.from_string("Hello, World!")
             """
             ...
@@ -103,7 +103,7 @@ class communication:
                 A new payload instance containing the binary data.
             
             Example:
-                >>> from up_py.communication import UPayload
+                >>> from up_py_rs.communication import UPayload
                 >>> payload = UPayload.from_bytes([72, 101, 108, 108, 111])
             """
             ...
@@ -128,9 +128,9 @@ class communication:
                 Exception: If the runtime creation fails.
             
             Example:
-                >>> from up_py.communication import SimplePublisher
-                >>> from up_py.local_transport import LocalTransport
-                >>> from up_py import StaticUriProvider
+                >>> from up_py_rs.communication import SimplePublisher
+                >>> from up_py_rs.local_transport import LocalTransport
+                >>> from up_py_rs import StaticUriProvider
                 >>> transport = LocalTransport()
                 >>> provider = StaticUriProvider("device", 0x1234, 0x01)
                 >>> publisher = SimplePublisher(transport, provider)
@@ -149,7 +149,7 @@ class communication:
                 Exception: If publishing fails.
             
             Example:
-                >>> from up_py.communication import UPayload
+                >>> from up_py_rs.communication import UPayload
                 >>> payload = UPayload.from_string("Hello")
                 >>> publisher.publish(0xb4c1, payload)
                 >>> # Or publish without payload:
@@ -180,7 +180,7 @@ class local_transport:
                 Exception: If the runtime creation fails.
             
             Example:
-                >>> from up_py.local_transport import LocalTransport
+                >>> from up_py_rs.local_transport import LocalTransport
                 >>> transport = LocalTransport()
             """
             ...
@@ -204,7 +204,7 @@ class local_transport:
                 Exception: If registration fails.
             
             Example:
-                >>> from up_py import UMessage
+                >>> from up_py_rs import UMessage
                 >>> def my_handler(msg: UMessage):
                 ...     print(msg.extract_string())
                 >>> transport.register_listener(uri_provider, 0xb4c1, my_handler)
